@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_generic_buttons",
+  "info": {
+    "displayName": "button"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "white"
+      ]
+    }
+  }
+}
