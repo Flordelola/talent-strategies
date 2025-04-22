@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
-      <footer className="bg-white/50">
-        <div className="container mx-auto flex justify-center items-center py-4">
+      <footer className="footer">
+        <div className="">
           <div>&copy; {new Date().getFullYear()} Talent Strategies</div>
         </div>
       </footer>

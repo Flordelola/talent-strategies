@@ -21,7 +21,7 @@ export default function NavLink({ href, children }: Readonly<NavLinkProps>) {
       <Link
         href={href}
         className={cn(
-          isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
+          isActive ? "bold" : ""
         )}
       >
         {children}

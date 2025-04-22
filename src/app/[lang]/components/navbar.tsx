@@ -2,18 +2,17 @@ import Link from "next/link";
 import NavLink from "./nav-link";
 
 const links = [
-  { href: "/", label: "Home" },
   { href: "/intro", label: "Intro" },
-  { href: "/my-story", label: "My Story" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Navbar() {
   return (
-    <header className="bg-white/50">
-      <nav className="container mx-auto flex justify-between items-center py-4">
+    <header className="main-header">
+      <nav className="main-navbar">
         <Link href="/">Alejandra Espinosa - Talent Strategies</Link>
 
-        <ul className="flex gap-4">
+        <ul className="nav-elements">
           {links.map((link) => (
             <NavLink key={link.href} href={link.href}>
               {link.label}
