@@ -20,7 +20,8 @@
       "type": "dynamiczone",
       "components": [
         "generic.button",
-        "blocks.heading"
+        "blocks.heading",
+        "blocks.media-content"
       ],
       "pluginOptions": {
         "i18n": {

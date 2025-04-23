@@ -92,14 +92,6 @@ export async function generateStaticParams() {
   return pageResponse.data.map(
     (page: {
         slug: string;
-        sections: {
-          heading: {
-            title: string;
-            subTitle: string;
-          }
-    
-        }
-      
     }) => ({ slug: page.slug })
   );
 }

@@ -399,7 +399,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       }>;
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.DynamicZone<
-      ['generic.button', 'blocks.heading']
+      ['generic.button', 'blocks.heading', 'blocks.media-content']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

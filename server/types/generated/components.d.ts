@@ -12,6 +12,19 @@ export interface BlocksHeading extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksMediaContent extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_media_contents';
+  info: {
+    displayName: 'mediaContent';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface GenericButton extends Struct.ComponentSchema {
   collectionName: 'components_generic_buttons';
   info: {
@@ -42,6 +55,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.heading': BlocksHeading;
+      'blocks.media-content': BlocksMediaContent;
       'generic.button': GenericButton;
       'seo.seo': SeoSeo;
     }
