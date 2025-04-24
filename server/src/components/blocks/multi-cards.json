@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_blocks_multi_cards",
+  "info": {
+    "displayName": "multiCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "grey",
+        "pearl"
+      ],
+      "default": "white"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "generic.cards"
+    },
+    "numberCol": {
+      "type": "enumeration",
+      "enum": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ],
+      "default": "four"
+    },
+    "titleSize": {
+      "type": "enumeration",
+      "enum": [
+        "medium",
+        "large",
+        "extraLarge"
+      ],
+      "default": "medium"
+    }
+  }
+}

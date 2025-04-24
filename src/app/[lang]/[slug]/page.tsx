@@ -1,7 +1,11 @@
 import { fetchAPI } from '@/app/[lang]/utils/fetch-api';
 import type { Metadata } from 'next';
 import PageSections from '../components/pageSections';
-    
+
+const FALLBACK_SEO = {
+    title: "Talent strategies",
+    description: "HR - Alejandra Espinosa",
+}
 async function getInfoBySlug(slug: string) {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
     const path = `/pages`;
@@ -21,22 +25,23 @@ async function getMetaData(slug: string) {
     const path = `/pages`;
     const urlParamsObject = {
         filters: { slug },
-        populate: { seo: { populate: '*' } },
+        populate: { seo_data: { populate: '*' } },
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const response = await fetchAPI(path, urlParamsObject, options);
     return response.data;
 }
 
-// export async function ({ params }: { params: { slug: string } }): Promise<Metadata> {
-//     const meta = await getMetaData(params.slug);
-//     const metadata = meta[0].attributes.seo;
-
-//     return {
-//         title: metadata.metaTitle,
-//         description: metadata.metaDescription,
-//     };
-// }
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const { slug } = params;
+    const meta = await getMetaData(slug);
+    const metadata = meta[0].seo_data
+     if (!metadata) return FALLBACK_SEO;
+    return {
+        title: metadata.metaTitle,
+        description: metadata.metaDescription,
+    };
+}
 
 export default async function PostRoute({ params }: { params: { slug: string } }) {
     const { slug } = params;

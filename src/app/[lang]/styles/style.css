@@ -1,0 +1,112 @@
+/* General */
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+h3 {
+  font-size: 1.3rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h5 {
+  font-size: 1.1rem;
+}
+p {
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+/* Custom classes */
+.bold {
+  font-weight: 700;
+}
+ 
+.max-container {
+  max-width: 1084px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Layout */
+ 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+main {
+  height: 100%;
+}
+
+section > div {
+  width: 100%;
+}
+
+.padding-container {
+  padding: 20px 20px;
+}
+
+/* Navbar */
+
+.main-header .main-navbar {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--black);
+}
+.main-header .main-navbar a { 
+  color: var(--white);
+}
+.main-header .main-navbar .nav-elements {
+  display: flex;
+  gap: 20px;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--black);
+  color:var(--white);
+}
+
+
+/* Links & Buttons */
+
+.button-format {
+  padding: 12px;
+  border: 2px solid;
+  border-radius: 8px;
+}
+
+.button-format.light-button{
+  background-color: transparent;
+  border-color: var(--white);
+  color: var(--black);
+}
+
+.button-format.light-button:hover{
+  opacity: 0.8;
+}
+.button-format.dark-button{
+  background-color: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+.button-format.dark-button:hover{
+  opacity: 0.8;
+}

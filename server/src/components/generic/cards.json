@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_generic_cards",
+  "info": {
+    "displayName": "cards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "generic.button"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "border": {
+      "type": "boolean"
+    },
+    "lightFont": {
+      "type": "boolean"
+    },
+    "backgroundColorCard": {
+      "type": "enumeration",
+      "enum": [
+        "transparent",
+        "white",
+        "black",
+        "grey",
+        "pearl"
+      ],
+      "default": "transparent"
+    }
+  }
+}

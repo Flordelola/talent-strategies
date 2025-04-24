@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_headings",
   "info": {
-    "displayName": "heading"
+    "displayName": "heading",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,6 +16,16 @@
       "type": "component",
       "repeatable": true,
       "component": "generic.button"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "grey",
+        "pearl"
+      ],
+      "default": "white"
     }
   }
 }

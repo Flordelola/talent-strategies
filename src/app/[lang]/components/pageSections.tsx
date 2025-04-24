@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Heading from "./heading/heading";
+import MediaContent from "./mediaContent/mediaContent";
 
 interface PageSections {
-
   title: string;
   slug: string;
   createdAt: string;
@@ -11,6 +11,7 @@ interface PageSections {
     id: number
     title: string
     subTitle: string
+    backgroundColor: [key: string]
     __component: string
     content: {
       children: {
@@ -18,21 +19,21 @@ interface PageSections {
       }[]
     }[]
     media: {
+      caption: string
       formats: {
         thumbnail: {
           url: string
+          width: number
+          height: number
         }
       }
     }
     button: {
-      data: {
-          attributes: {
-          label: string
-          url: string
-          color: string[]
-        }
-      }
-    }[]
+      label: string
+      url: string
+      color: string
+      outsideWeb: boolean
+     }[]
   }[]
 }
 
@@ -40,64 +41,22 @@ interface PageSections {
 
 export default function PageSections(
   {data}: {data:PageSections}){
-    const {title, sections  } = data;
-    console.log('sections?.length', sections[0].__component)
-    // const imageUrl = `${
-
-    //   process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:1337"
-  
-    // }${sections[0].media.formats.thumbnail.url}`;
+    const {sections  } = data;
   return (
     
     sections.map((item, index) => (
-      
-      <>
-    {item.__component === "blocks.heading" ? (
       <section key={item.id + index}>
-        <div>
-          <h3>
-            {item.title}
-          </h3>
-          <h4>
-            {item.subTitle}
-          </h4>
-        </div>
+        {item.__component === "blocks.heading" ? (
+          <div key={item.id + index} id={item.__component + '__' + index}>
+            <Heading data={item}/>
+          </div>
+        ): null}
+        {item.__component === "blocks.media-content" ? (
+          <div key={item.id + index} id={item.__component + '__' + index}>
+           <MediaContent data={item} />
+          </div>
+        ): null}
       </section>
-    ): null}
-    {item.__component === "blocks.media-content" ? (
-      <section key={item.id + index}>
-        <div>
-            {/* <Image
-
-            alt="avatar"
-
-            width="80"
-
-            height="80"
-
-            src={imageUrl}
-
-            className=""
-
-            /> */}
-            <h3>
-              {item.title}
-            </h3>
-            <h4>
-              {item.subTitle}
-            </h4>
-            <div>
-              {item.content.map((paragraph) => (
-                <p key={Math.random()}>{paragraph.children[0].text}</p>
-              ))}
-            </div>
-        </div>
-      </section>
-    ): null}
-    </>
     ))
-    
-
   );
-
 }

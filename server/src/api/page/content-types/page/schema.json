@@ -19,9 +19,9 @@
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "generic.button",
         "blocks.heading",
-        "blocks.media-content"
+        "blocks.media-content",
+        "blocks.multi-cards"
       ],
       "pluginOptions": {
         "i18n": {

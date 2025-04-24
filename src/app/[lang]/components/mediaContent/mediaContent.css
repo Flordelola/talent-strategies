@@ -1,0 +1,32 @@
+.media-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+.heading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.media-content-elements-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+.media-container {
+    flex: 0 0 calc(25% - 16px);
+}
+
+.media-container img{
+    max-width: 100%;
+    height: auto;
+}
+.content-container {
+    flex: 0 0 calc(75% - 16px);
+}
