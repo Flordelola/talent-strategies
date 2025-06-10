@@ -1,20 +1,58 @@
+/* Background colors */
 
 .grey-bg {
     background-color: var(--grey);
-    color: var(--black)
+    color: var(--black);
 }
-
 .black-bg {
     background-color: var(--black);
-    color: var(--white)
+    color: var(--white);
 }
-
 .white-bg {
     background-color: var(--white);
-    color: var(--black)
+    color: var(--black);
 }
 
 .pearl-bg {
-    background-color: var(--white);
+    background-color: var(--pearl);
     color: var(--black)
+}
+
+/* Font colors */
+
+.white-font {
+    color: var(--white);
+}
+.black-font {
+    color: var(--black);
+}
+.grey-font {
+    color: var(--grey);
+}
+.pearl-font {
+    color: var(--pearl);
+}
+
+/* Links & Buttons */
+
+.button-format.light-button{
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--black);
+}
+
+.button-format.light-button.outlined-button{
+    background-color: transparent;
+    border-color: var(--black);
+    color: var(--black);
+}
+.button-format.dark-button{
+    background-color: var(--black);
+    border-color: var(--black);
+    color: var(--white);
+}
+.button-format.dark-button.outlined-button{
+    background-color: transparent;
+    border-color: var(--white);
+    color: var(--white);
 }

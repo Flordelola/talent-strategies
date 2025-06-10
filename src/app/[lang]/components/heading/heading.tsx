@@ -1,14 +1,20 @@
+import Button from "../button/button";
 import "./heading.css";
 
 interface Heading {
    title: string
    subTitle: string
-   backgroundColor: [key: string]
+   backgroundColor: string[]   
+   titleColor:  [key: string]
+   subTitleColor: [key: string]
+   textAlign: [key: string]
    button: {
     label: string
     url: string
     color: string
     outsideWeb: boolean
+    outline: boolean
+    size: [key: string]
    }[]
 }
 
@@ -19,16 +25,37 @@ const backgroundColorStyle = {
   pearl: "pearl-bg"
 }
 
+const titleColorStyle = {
+  white: "white-font",
+  black: "black-font",
+  grey: "grey-font",
+  pearl: "pearl-font"
+}
+
+const subTitleColorStyle = {
+  white: "white-font",
+  black: "black-font",
+  grey: "grey-font",
+  pearl: "pearl-font"
+}
+
+const textAlignStyle = {
+  right: "right-alignment",
+  center: "center-alignment",
+  left: "left-alignment"
+}
+
 export default function Heading({ data }: { data: Heading}) {
-  const {title, subTitle, backgroundColor, button} = data
+  const {title, subTitle, backgroundColor, titleColor, subTitleColor, button, textAlign} = data
     return (
       <div className={`${"heading-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`}>
-        <div className="max-container padding-container">
-          <h1>{title}</h1>
-          <h2>{subTitle}</h2>
+        <div className={`${"max-container padding-container"} ${textAlign? textAlignStyle[textAlign] : 'left-alignment'}`}>
+          <h1 className={`${"margin-bottom-32"} ${titleColor ? titleColorStyle[titleColor] : 'black-font'}`}>{title}</h1>
+          <h2 className={`${"margin-bottom-32"} ${subTitleColor ? subTitleColorStyle[subTitleColor] : 'black-font'}`}>{subTitle}</h2>
           <div className="buttons-container">
             {button.map((item)=>(
-              <a className={`${item.color === "white" ? "light-button" : "dark-button"} ${"button-format"}`} key={Math.random()} href={item.url} target={item.outsideWeb ? '_blank' : '_self'}>{item.label}</a>
+              <Button key={Math.random()} color={item.color} size={item.size} 
+               url={item.url} outsideWeb={item.outsideWeb} label={item.label} outline={item.outline}/>
             ))}
           </div>
         </div>

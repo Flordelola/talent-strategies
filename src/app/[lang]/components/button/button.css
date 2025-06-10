@@ -1,0 +1,25 @@
+/* Links & Buttons */
+
+.button-format {
+    padding: 12px;
+    border: 2px solid;
+    border-radius: 8px;
+}
+  
+.button-format.light-button:hover{
+    opacity: 0.8;
+}
+.button-format.dark-button:hover{
+    opacity: 0.8;
+}
+.large-button {
+    font-size: 1.5em;
+}
+.medium-button {
+    font-size: 1.3em;
+}
+.small-button {
+    font-size: 1em;
+    padding: 8px;
+    height: fit-content;
+}

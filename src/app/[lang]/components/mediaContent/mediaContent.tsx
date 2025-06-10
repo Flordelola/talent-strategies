@@ -47,7 +47,7 @@ export default function MediaContent({ data }: { data: MediaContent}) {
             </div>
             <div className="media-content-elements-container">
               <div className="media-container">
-                <Image alt={media.caption ? media.caption : 'image'} width={mediaApi.width} height={mediaApi.height} src={'http://localhost:1337' + mediaApi.url} className=""/>
+                <Image alt={media.caption ? media.caption : 'images'} width={mediaApi.width} height={mediaApi.height} src={'http://localhost:1337' + mediaApi.url} className=""/>
               </div>
               <div className="content-container">
                 {content.map((paragraph) => (

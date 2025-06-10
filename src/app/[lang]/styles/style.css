@@ -4,25 +4,37 @@ h1, h2, h3, h4, h5 {
   margin: 0;
 }
 h1 {
-  font-size: 1.5rem;
+  font-size: 4em;
+  line-height: 1.2em;
 }
 h2 {
-  font-size: 1.4rem;
+  font-size: 2em;
 }
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.5em;
 }
 h4 {
-  font-size: 1.2rem;
+  font-size: 1.17em;
 }
 h5 {
-  font-size: 1.1rem;
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.83em;
 }
 p {
   margin-bottom: 20px;
   margin-top: 0;
-  font-size: 1rem;
+  font-size: 1em;
 }
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
 
 /* Custom classes */
 .bold {
@@ -30,9 +42,32 @@ p {
 }
  
 .max-container {
-  max-width: 1084px;
+  max-width: calc(100% - 3rem);
   margin: 0 auto;
   width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .max-container {
+    max-width: calc(100% - 4rem);
+    width: 1440px;
+  }
+}
+
+/* Margins */
+
+.margin-bottom-32 {
+  margin-bottom: 32px;
+}
+
+.margin-bottom-28 {
+  margin-bottom: 28px;
+}
+.margin-bottom-24 {
+  margin-bottom: 24px;
+}
+.margin-bottom-20 {
+  margin-bottom: 20px;
 }
 
 /* Layout */
@@ -41,7 +76,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  min-height: 100vh;
 }
 main {
   height: 100%;
@@ -52,7 +87,7 @@ section > div {
 }
 
 .padding-container {
-  padding: 20px 20px;
+  padding: 40px 0px;
 }
 
 /* Navbar */
@@ -65,7 +100,7 @@ section > div {
   padding: 20px;
   background-color: var(--black);
 }
-.main-header .main-navbar a { 
+.main-header .main-navbar a:not(.button-format) { 
   color: var(--white);
 }
 .main-header .main-navbar .nav-elements {
@@ -73,9 +108,15 @@ section > div {
   gap: 20px;
 }
 
+.main-header .main-navbar .right-elements {
+  display: flex;
+  gap: 20px;
+}
+
 /* Footer */
 .footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -83,30 +124,21 @@ section > div {
   color:var(--white);
 }
 
+/* Text alignment */
 
-/* Links & Buttons */
-
-.button-format {
-  padding: 12px;
-  border: 2px solid;
-  border-radius: 8px;
+.right-alignment {
+  text-align: right;
 }
-
-.button-format.light-button{
-  background-color: transparent;
-  border-color: var(--white);
-  color: var(--black);
+.right-alignment .buttons-container {
+  justify-content: flex-end;
 }
-
-.button-format.light-button:hover{
-  opacity: 0.8;
+.center-alignment {
+  text-align: center;
+  margin:  0 auto;
 }
-.button-format.dark-button{
-  background-color: var(--black);
-  border-color: var(--black);
-  color: var(--white);
+.center-alignment .buttons-container {
+  justify-content: center;
 }
-
-.button-format.dark-button:hover{
-  opacity: 0.8;
+.left-alignment {
+  text-align: left;
 }
