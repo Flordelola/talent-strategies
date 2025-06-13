@@ -31,12 +31,6 @@
         "audios"
       ]
     },
-    "border": {
-      "type": "boolean"
-    },
-    "lightFont": {
-      "type": "boolean"
-    },
     "backgroundColorCard": {
       "type": "enumeration",
       "enum": [
@@ -47,6 +41,49 @@
         "pearl"
       ],
       "default": "transparent"
+    },
+    "moreContentHover": {
+      "type": "boolean",
+      "default": false
+    },
+    "moreContentTitle": {
+      "type": "string"
+    },
+    "moreContentDescription": {
+      "type": "string"
+    },
+    "moreContentButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "generic.button"
+    },
+    "moreContentBackground": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "gray",
+        "pearl"
+      ],
+      "default": "black"
+    },
+    "contentAlignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "rigth"
+      ],
+      "default": "left"
+    },
+    "moreContentAlignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "left"
     }
   }
 }

@@ -22,6 +22,19 @@
     "outsideWeb": {
       "type": "boolean",
       "default": true
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "default": "medium"
+    },
+    "outline": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

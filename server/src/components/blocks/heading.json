@@ -26,6 +26,34 @@
         "pearl"
       ],
       "default": "white"
+    },
+    "titleColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "grey",
+        "pearl"
+      ],
+      "default": "black"
+    },
+    "subTitleColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "grey",
+        "pearl"
+      ],
+      "default": "black"
+    },
+    "textAlign": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
     }
   }
 }

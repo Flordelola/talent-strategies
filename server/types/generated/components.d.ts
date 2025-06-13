@@ -13,7 +13,16 @@ export interface BlocksHeading extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'white'>;
     button: Schema.Attribute.Component<'generic.button', true>;
     subTitle: Schema.Attribute.String;
+    subTitleColor: Schema.Attribute.Enumeration<
+      ['white', 'black', 'grey', 'pearl']
+    > &
+      Schema.Attribute.DefaultTo<'black'>;
+    textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
     title: Schema.Attribute.String;
+    titleColor: Schema.Attribute.Enumeration<
+      ['white', 'black', 'grey', 'pearl']
+    > &
+      Schema.Attribute.DefaultTo<'black'>;
   };
 }
 
@@ -72,7 +81,10 @@ export interface GenericButton extends Struct.ComponentSchema {
   attributes: {
     color: Schema.Attribute.Enumeration<['black', 'white']>;
     label: Schema.Attribute.String;
+    outline: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     outsideWeb: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    size: Schema.Attribute.Enumeration<['small', 'medium', 'large']> &
+      Schema.Attribute.DefaultTo<'medium'>;
     url: Schema.Attribute.String;
   };
 }
@@ -88,11 +100,26 @@ export interface GenericCards extends Struct.ComponentSchema {
       ['transparent', 'white', 'black', 'grey', 'pearl']
     > &
       Schema.Attribute.DefaultTo<'transparent'>;
-    border: Schema.Attribute.Boolean;
     button: Schema.Attribute.Component<'generic.button', false>;
+    contentAlignment: Schema.Attribute.Enumeration<
+      ['left', 'center', 'rigth']
+    > &
+      Schema.Attribute.DefaultTo<'left'>;
     description: Schema.Attribute.Text;
-    lightFont: Schema.Attribute.Boolean;
     media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    moreContentAlignment: Schema.Attribute.Enumeration<
+      ['left', 'center', 'right']
+    > &
+      Schema.Attribute.DefaultTo<'left'>;
+    moreContentBackground: Schema.Attribute.Enumeration<
+      ['white', 'black', 'gray', 'pearl']
+    > &
+      Schema.Attribute.DefaultTo<'black'>;
+    moreContentButton: Schema.Attribute.Component<'generic.button', false>;
+    moreContentDescription: Schema.Attribute.String;
+    moreContentHover: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    moreContentTitle: Schema.Attribute.String;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -101,6 +128,7 @@ export interface GenericCards extends Struct.ComponentSchema {
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
+    description: '';
     displayName: 'seo';
   };
   attributes: {
@@ -108,7 +136,6 @@ export interface SeoSeo extends Struct.ComponentSchema {
     metaImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     metaTitle: Schema.Attribute.String;
     preventIndexing: Schema.Attribute.Boolean;
-    structuredData: Schema.Attribute.JSON;
   };
 }
 
