@@ -12,7 +12,24 @@ async function getInfoBySlug(slug: string) {
     const urlParamsObject = {
         filters: { slug },
         populate: {
-            sections: { populate: '*' },
+            sections: { // asking to populate the dynamic zone 'sections'
+                on: { // using a detailed population strategy to explicitly define blocks info
+                    'blocks.heading': {
+                        populate: '*',
+                    },
+                    'blocks.media-content': {
+                        populate: '*',
+                    },
+                    'blocks.multi-cards': {
+                        populate: {
+                            'cards': {
+                                populate: '*'
+                            }
+                        }
+                    },
+                },
+                
+            },
         },
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };

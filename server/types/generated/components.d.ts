@@ -63,12 +63,10 @@ export interface BlocksMultiCards extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'white'>;
     cards: Schema.Attribute.Component<'generic.cards', true>;
     description: Schema.Attribute.Text;
-    numberCol: Schema.Attribute.Enumeration<['one', 'two', 'three', 'four']> &
+    numberCards: Schema.Attribute.Enumeration<['one', 'two', 'three', 'four']> &
       Schema.Attribute.DefaultTo<'four'>;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
-    titleSize: Schema.Attribute.Enumeration<['medium', 'large', 'extraLarge']> &
-      Schema.Attribute.DefaultTo<'medium'>;
   };
 }
 

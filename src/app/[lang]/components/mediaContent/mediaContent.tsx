@@ -1,46 +1,6 @@
 import Image from "next/image";
 import "./mediaContent.css";
 
-interface MediaContent {
-   title: string
-   subTitle: string
-   backgroundColor: [key: string]
-   content: {
-    children: {
-      text: string
-    }[]
-  }[]
-  media: {
-    caption: string
-    formats: {
-      thumbnail: {
-        url: string
-        width: number
-        height: number
-      }
-    }
-  }
-  backgroundMediaContent: {
-    caption: string
-    formats: {
-      thumbnail: {
-        url: string
-        width: number
-        height: number
-      }
-    }
-  }
-  backgroundMediaSection: {
-    caption: string
-    formats: {
-      thumbnail: {
-        url: string
-        width: number
-        height: number
-      }
-    }
-  }
-}
 
 const backgroundColorStyle = {
   white: "white-bg",
@@ -56,7 +16,7 @@ export default function MediaContent({ data }: { data: MediaContent}) {
   const bgMediaContentApi = backgroundMediaContent.formats.thumbnail
   const bgMediaSectionApi = backgroundMediaSection.formats.thumbnail
     return (
-      <div className={`${"heading-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`} style={{backgroundImage: `url(${ 'http://localhost:1337' + bgMediaContentApi.url})`}}>
+      <div className={`${"media-content-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`} style={{backgroundImage: `url(${ 'http://localhost:1337' + bgMediaContentApi.url})`}}>
         <div className="max-container padding-container">
           <div className="media-content-container">
             <div className="heading-container">

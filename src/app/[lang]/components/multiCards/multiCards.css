@@ -1,0 +1,32 @@
+.multi-cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+.heading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.media-cards-elements-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+.media-cards-elements-container .one-card {
+    flex: 0 0 calc(100% - 32px);
+}
+.media-cards-elements-container .two-cards {
+    flex: 0 0 calc(50% - 16px);
+}
+.media-cards-elements-container .three-cards {
+    flex: 0 0 calc(calc(100% / 3) - 16px);
+}
+.media-cards-elements-container .four-cards {
+    flex: 0 0 calc(25% - 16px);
+}

@@ -1,14 +1,5 @@
 import "./button.css";
 
-interface Button {
-  label: string
-  url: string
-  color: string
-  outsideWeb: boolean
-  outline: boolean
-  size: [key: string]
-}
-
 const buttonSizeStyle = {
   small: "small-button",
   medium: "medium-button",

@@ -30,7 +30,7 @@
       "repeatable": true,
       "component": "generic.cards"
     },
-    "numberCol": {
+    "numberCards": {
       "type": "enumeration",
       "enum": [
         "one",
@@ -39,15 +39,6 @@
         "four"
       ],
       "default": "four"
-    },
-    "titleSize": {
-      "type": "enumeration",
-      "enum": [
-        "medium",
-        "large",
-        "extraLarge"
-      ],
-      "default": "medium"
     }
   }
 }

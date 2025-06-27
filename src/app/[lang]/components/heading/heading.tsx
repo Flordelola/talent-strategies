@@ -8,14 +8,7 @@ interface Heading {
    titleColor:  [key: string]
    subTitleColor: [key: string]
    textAlign: [key: string]
-   button: {
-    label: string
-    url: string
-    color: string
-    outsideWeb: boolean
-    outline: boolean
-    size: [key: string]
-   }[]
+   button: Button[]
 }
 
 const backgroundColorStyle = {

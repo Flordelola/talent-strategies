@@ -21,7 +21,7 @@ export default function Navbar() {
             </NavLink>
           ))}
         </ul>
-        <Button key={Math.random()} color={'white'} size={'small'} 
+        <Button key={Math.random()} color={'white'} size={['small']}
           url={'https://outlook.office.com/bookwithme/user/b1caf79ed49f42378eee351544324e11@talentstrategiesconsulting.com?anonymous&isanonymous=true'} 
           outsideWeb={true} label={'Contact me'} outline={false}/>
         </div>
