@@ -62,7 +62,7 @@
       "enum": [
         "white",
         "black",
-        "gray",
+        "grey",
         "pearl"
       ],
       "default": "black"
@@ -72,7 +72,7 @@
       "enum": [
         "left",
         "center",
-        "rigth"
+        "right"
       ],
       "default": "left"
     },

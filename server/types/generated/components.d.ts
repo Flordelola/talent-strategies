@@ -100,7 +100,7 @@ export interface GenericCards extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'transparent'>;
     button: Schema.Attribute.Component<'generic.button', false>;
     contentAlignment: Schema.Attribute.Enumeration<
-      ['left', 'center', 'rigth']
+      ['left', 'center', 'right']
     > &
       Schema.Attribute.DefaultTo<'left'>;
     description: Schema.Attribute.Text;
@@ -110,7 +110,7 @@ export interface GenericCards extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<'left'>;
     moreContentBackground: Schema.Attribute.Enumeration<
-      ['white', 'black', 'gray', 'pearl']
+      ['white', 'black', 'grey', 'pearl']
     > &
       Schema.Attribute.DefaultTo<'black'>;
     moreContentButton: Schema.Attribute.Component<'generic.button', false>;
