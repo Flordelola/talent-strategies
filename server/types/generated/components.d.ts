@@ -44,6 +44,8 @@ export interface BlocksMediaContent extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     content: Schema.Attribute.Blocks;
+    contentAlignment: Schema.Attribute.Enumeration<['right', 'left']> &
+      Schema.Attribute.DefaultTo<'right'>;
     media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;

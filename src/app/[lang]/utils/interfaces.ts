@@ -45,6 +45,7 @@ interface MediaContent {
   media: Media
   backgroundMediaContent: Media
   backgroundMediaSection: Media
+  contentAlignment: [key: string]
 }
 
 interface MultiCards {
