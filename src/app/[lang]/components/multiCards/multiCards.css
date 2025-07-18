@@ -18,18 +18,46 @@
     justify-content: space-between;
     align-items: center;
     gap: 32px;
-    width: 100%;
+    width: calc(100% - 32px);
+    flex-wrap: wrap;
 }
+.multi-cards-elements-container .card-component {
+    flex: 0 0 100%;
+}
+
 .multi-cards-elements-container.one-card .card-component {
-    flex: 0 0 calc(100% - 32px);
+    flex: 0 0 100%;
 }
-.multi-cards-elements-container.two-cards .card-component {
-    flex: 0 0 calc(50% - 24px);
+
+@media screen and (min-width: 560px) { 
+    .multi-cards-elements-container.two-cards .card-component {
+        flex: 0 0 calc(50% - 36px);
+    }
 }
-.multi-cards-elements-container.three-cards .card-component{
-    flex: 0 0 calc(calc(100% / 3) - 24px);
+@media screen and (min-width: 560px) { 
+    .multi-cards-elements-container.three-cards .card-component{
+        flex: 0 0 calc(50% - 36px);
+        max-width: calc(50% - 36px);
+    }
 }
-.multi-cards-elements-container.four-cards .card-component{
-    flex: 0 0 calc(25% - 48px);
-    max-width: calc(25% - 48px);
+
+@media screen and (min-width: 768px) { 
+    .multi-cards-elements-container.three-cards .card-component{
+        flex: 0 0 calc(calc(100% / 3) - 48px);
+        max-width: calc(calc(100% / 3) - 48px);
+    }
+}
+
+@media screen and (min-width: 560px) { 
+    .multi-cards-elements-container.four-cards .card-component{
+        flex: 0 0 calc(50% - 36px);
+        max-width: calc(50% - 36px);
+    }
+}
+
+@media screen and (min-width: 768px) { 
+    .multi-cards-elements-container.four-cards .card-component{
+        flex: 0 0 calc(25% - 48px);
+        max-width: calc(25% - 48px);
+    }
 }
