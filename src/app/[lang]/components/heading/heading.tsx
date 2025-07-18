@@ -1,16 +1,6 @@
 import Button from "../button/button";
 import "./heading.css";
 
-interface Heading {
-   title: string
-   subTitle: string
-   backgroundColor: string[]   
-   titleColor:  [key: string]
-   subTitleColor: [key: string]
-   textAlign: [key: string]
-   button: Button[]
-}
-
 const backgroundColorStyle = {
   white: "white-bg",
   black: "black-bg",

@@ -1,0 +1,15 @@
+.heading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.heading-container.right-alignment {
+    align-items: flex-end;
+}
+.heading-container.left-alignment {
+    align-items: flex-start;
+}

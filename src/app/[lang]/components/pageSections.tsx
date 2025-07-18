@@ -23,25 +23,13 @@ interface PageSections {
         text: string
       }[]
     }[]
-    cards: {
-      title: string
-      subTitle: string
-      description: string
-      button: Button
-      media: Media
-      backgroundColorCard: [key: string]
-      moreContentHover: boolean
-      moreContentTitle: string
-      moreContentDescription: string
-      moreContentButton: Button
-      moreContentBackground: [key: string]
-      contentAlignment: [key: string]
-      moreContentAlignment: [key: string]
-    }
+    cards: Cards[]
     media: Media
     backgroundMediaContent: Media
     backgroundMediaSection: Media
     button: Button[]
+    heading: SimpleHeading
+    contentAlignment: [key: string]
   }[]
 }
 

@@ -22,6 +22,9 @@ async function getInfoBySlug(slug: string) {
                     },
                     'blocks.multi-cards': {
                         populate: {
+                            'heading': {
+                                populate: '*'
+                            },
                             'cards': {
                                 populate: '*'
                             }

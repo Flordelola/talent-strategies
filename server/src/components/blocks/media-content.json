@@ -6,12 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "subTitle": {
-      "type": "string"
-    },
     "content": {
       "type": "blocks"
     },
@@ -65,6 +59,11 @@
         "left"
       ],
       "default": "right"
+    },
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "generic.simple-heading"
     }
   }
 }

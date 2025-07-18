@@ -1,5 +1,6 @@
 import "./multiCards.css";
 import Cards from "../cards/cards";
+import SimpleHeading from "../simpleHeading/simpleHeading";
 
 
 const backgroundColorStyle = {
@@ -18,22 +19,17 @@ const numberCardsStyle = {
 
 
 export default function MultiCards({ data }: { data: MultiCards}) {
-  const {title, subTitle, description, backgroundColor, numberCards, cards} = data
-
+  const {heading, backgroundColor, numberCards, cards} = data
+  console.log('dataMulticards', data)
+  console.log('heading', heading)
     
     return (
       <div className={`${"multi-cards-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`}>
         <div className="max-container padding-container">
           <div className="multi-cards-container">
-            <div className="heading-container">
-              <h2>
-                {title}
-              </h2>
-              <h3>
-                {subTitle}
-              </h3>
-              <p>{description}</p>
-            </div>
+            {heading && (
+              <SimpleHeading title={heading?.title} subTitle={heading?.subTitle} description={heading?.description} textAlign={heading?.textAlign}/>
+            )}
             <div className={`${"multi-cards-elements-container"} ${numberCards ? numberCardsStyle[numberCards]: 'four-cards'}`}>
               {cards?.map((item)=>(
                 <Cards key={Math.random()} title={item.title} subTitle={item.subTitle} description={item.description}

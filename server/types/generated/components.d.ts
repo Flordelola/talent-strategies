@@ -46,9 +46,8 @@ export interface BlocksMediaContent extends Struct.ComponentSchema {
     content: Schema.Attribute.Blocks;
     contentAlignment: Schema.Attribute.Enumeration<['right', 'left']> &
       Schema.Attribute.DefaultTo<'right'>;
+    heading: Schema.Attribute.Component<'generic.simple-heading', false>;
     media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -64,11 +63,9 @@ export interface BlocksMultiCards extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<'white'>;
     cards: Schema.Attribute.Component<'generic.cards', true>;
-    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.Component<'generic.simple-heading', false>;
     numberCards: Schema.Attribute.Enumeration<['one', 'two', 'three', 'four']> &
       Schema.Attribute.DefaultTo<'four'>;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -125,6 +122,20 @@ export interface GenericCards extends Struct.ComponentSchema {
   };
 }
 
+export interface GenericSimpleHeading extends Struct.ComponentSchema {
+  collectionName: 'components_generic_simple_headings';
+  info: {
+    displayName: 'SimpleHeading';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    subTitle: Schema.Attribute.String;
+    textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'center'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -147,6 +158,7 @@ declare module '@strapi/strapi' {
       'blocks.multi-cards': BlocksMultiCards;
       'generic.button': GenericButton;
       'generic.cards': GenericCards;
+      'generic.simple-heading': GenericSimpleHeading;
       'seo.seo': SeoSeo;
     }
   }

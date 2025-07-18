@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_generic_simple_headings",
+  "info": {
+    "displayName": "SimpleHeading"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "textAlign": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "center"
+    }
+  }
+}

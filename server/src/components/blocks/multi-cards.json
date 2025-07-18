@@ -6,15 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "subTitle": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
     "backgroundColor": {
       "type": "enumeration",
       "enum": [
@@ -39,6 +30,11 @@
         "four"
       ],
       "default": "four"
+    },
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "generic.simple-heading"
     }
   }
 }

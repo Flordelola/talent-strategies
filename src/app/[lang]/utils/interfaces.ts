@@ -7,6 +7,23 @@ interface Button {
   size?: [key: string]
 }
 
+interface Heading {
+  title: string
+  subTitle: string
+  backgroundColor: string[]   
+  titleColor:  [key: string]
+  subTitleColor: [key: string]
+  textAlign: [key: string]
+  button: Button[]
+}
+
+interface SimpleHeading {
+  title?: string
+  subTitle?: string
+  description?: string
+  textAlign?: [key: string]
+}
+
 interface Media {
   caption: string
   formats: {
@@ -34,8 +51,7 @@ interface Cards {
 }
 
 interface MediaContent {
-  title: string
-  subTitle: string
+  heading: SimpleHeading
   backgroundColor: [key: string]
   content: {
     children: {
@@ -49,9 +65,7 @@ interface MediaContent {
 }
 
 interface MultiCards {
-  title?: string
-  subTitle?: string
-  description?: string
+  heading: SimpleHeading
   backgroundColor: [key: string]
   numberCards: [key: string]
   cards: Cards[]
