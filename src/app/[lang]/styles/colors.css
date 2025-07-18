@@ -43,8 +43,8 @@
 
 .button-format.light-button.outlined-button{
     background-color: transparent;
-    border-color: var(--black);
-    color: var(--black);
+    border-color: var(--white);
+    color: var(--white);
 }
 .button-format.dark-button{
     background-color: var(--black);
@@ -53,6 +53,6 @@
 }
 .button-format.dark-button.outlined-button{
     background-color: transparent;
-    border-color: var(--white);
-    color: var(--white);
+    border-color: var(--black);
+    color: var(--black);
 }
