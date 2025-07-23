@@ -2,7 +2,7 @@ import Button from "./button/button";
 
 interface Footer {
   title?: string;
-  button: Button[];
+  button?: Button[];
 }
 
 export default function Footer(
@@ -12,7 +12,7 @@ export default function Footer(
     return (
       <footer className="footer">
         <div className="buttons-container">
-        {button.map((item)=>(
+        {button?.map((item)=>(
               <Button key={Math.random()} color={item.color} size={item.size} 
                url={item.url} outsideWeb={item.outsideWeb} label={item.label} outline={item.outline}/>
             ))}
