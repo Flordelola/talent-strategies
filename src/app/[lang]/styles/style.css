@@ -92,6 +92,13 @@ section > div {
 .padding-container {
   padding: 40px 0px;
 }
+.no-page-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
 /* Navbar */
 
@@ -125,6 +132,7 @@ section > div {
   padding: 20px;
   background-color: var(--black);
   color:var(--white);
+  border-top: 1px solid var(--pearl);
 }
 
 /* Text alignment */

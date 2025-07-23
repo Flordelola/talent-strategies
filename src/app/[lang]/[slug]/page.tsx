@@ -1,6 +1,7 @@
 import { fetchAPI } from '@/app/[lang]/utils/fetch-api';
 import type { Metadata } from 'next';
 import PageSections from '../components/pageSections';
+import Footer from '../components/footer';
 
 const FALLBACK_SEO = {
     title: "Talent strategies",
@@ -40,44 +41,79 @@ async function getInfoBySlug(slug: string) {
     return response;
 }
 
+async function getInfoByFooter() {
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const path = `/footer`;
+    const urlParamsObject = {
+        populate: '*'
+    };
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const response = await fetchAPI(path, urlParamsObject, options);
+    return response;
+}
+
 async function getMetaData(slug: string) {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
     const path = `/pages`;
     const urlParamsObject = {
         filters: { slug },
         populate: { seo_data: { populate: '*' } },
+        
     };
+    
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const response = await fetchAPI(path, urlParamsObject, options);
-    return response.data;
+    if (response.data.length > 0) {
+        return response.data;
+    }
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const { slug } = params;
     const meta = await getMetaData(slug);
-    const metadata = meta[0].seo_data
-     if (!metadata) return FALLBACK_SEO;
-    return {
-        title: metadata.metaTitle,
-        description: metadata.metaDescription,
-    };
+    const metadata = meta && meta[0].seo_data
+
+    if (!metadata ) {
+        return FALLBACK_SEO
+    } else {;
+        return {
+            title: metadata.metaTitle,
+            description: metadata.metaDescription,
+        };
+    }
 }
 
 export default async function PostRoute({ params }: { params: { slug: string } }) {
     const { slug } = params;
-    const data = await getInfoBySlug(slug);
+    const dataPages = await getInfoBySlug(slug);
+    const dataFooter = await getInfoByFooter();
     
-    if (data.data.length === 0) return <h2>no Page data found</h2>;
-    return <PageSections data={data.data[0]} />;
+    if (dataPages.data.length === 0) return (
+        <>
+            <div className='no-page-found padding-container'>
+                <h1>404 - Not found</h1>
+                <p>The requested URL was not found on this server</p>
+            </div>
+            <Footer data={dataFooter.data} />
+        </>
+    );
+    return (
+        <>  
+            <main>
+                <PageSections data={dataPages.data[0]} />
+            </main>
+            <Footer data={dataFooter.data} />
+        </>
+    )
 }
 
 export async function generateStaticParams() {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-    const path = `/pages`;
+    const page = `/pages`;
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const pageResponse = await fetchAPI(
-        path,
-        options
+        page,
+        options,
     );
 
     return pageResponse.data.map(

@@ -2,7 +2,6 @@ import { Poppins} from "next/font/google";
 import "./globals.css";
 import { i18n } from "../../../i18n-config";
 import Navbar from "./components/navbar";
-import Footer from "./components/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,10 +23,7 @@ export default function RootLayout({
       >
         <div className="main-container">
           <Navbar />
-          <main>
-            {children}
-          </main>
-          <Footer />
+          {children}
         </div>
       </body>
     </html>

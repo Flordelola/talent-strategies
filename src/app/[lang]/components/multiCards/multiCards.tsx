@@ -20,8 +20,6 @@ const numberCardsStyle = {
 
 export default function MultiCards({ data }: { data: MultiCards}) {
   const {heading, backgroundColor, numberCards, cards} = data
-  console.log('dataMulticards', data)
-  console.log('heading', heading)
     
     return (
       <div className={`${"multi-cards-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`}>
