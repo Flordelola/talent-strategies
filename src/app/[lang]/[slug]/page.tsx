@@ -2,6 +2,7 @@ import { fetchAPI } from '@/app/[lang]/utils/fetch-api';
 import type { Metadata } from 'next';
 import PageSections from '../components/pageSections';
 import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 
 const FALLBACK_SEO = {
     title: "Talent strategies",
@@ -52,6 +53,18 @@ async function getInfoByFooter() {
     return response;
 }
 
+async function getInfoByNavbar() {
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const path = `/navbar`;
+    const urlParamsObject = {
+        populate: '*'
+    };
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const response = await fetchAPI(path, urlParamsObject, options);
+    return response;
+
+}
+
 async function getMetaData(slug: string) {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
     const path = `/pages`;
@@ -87,9 +100,11 @@ export default async function PostRoute({ params }: { params: { slug: string } }
     const { slug } = params;
     const dataPages = await getInfoBySlug(slug);
     const dataFooter = await getInfoByFooter();
+    const dataNavbar = await getInfoByNavbar();
     
     if (dataPages.data.length === 0) return (
-        <>
+        <>  
+            <Navbar data={dataNavbar.data}/>
             <div className='no-page-found padding-container'>
                 <h1>404 - Not found</h1>
                 <p>The requested URL was not found on this server</p>
@@ -99,6 +114,7 @@ export default async function PostRoute({ params }: { params: { slug: string } }
     );
     return (
         <>  
+            <Navbar data={dataNavbar.data}/>
             <main>
                 <PageSections data={dataPages.data[0]} />
             </main>

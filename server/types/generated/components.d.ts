@@ -122,6 +122,17 @@ export interface GenericCards extends Struct.ComponentSchema {
   };
 }
 
+export interface GenericLink extends Struct.ComponentSchema {
+  collectionName: 'components_generic_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface GenericSimpleHeading extends Struct.ComponentSchema {
   collectionName: 'components_generic_simple_headings';
   info: {
@@ -158,6 +169,7 @@ declare module '@strapi/strapi' {
       'blocks.multi-cards': BlocksMultiCards;
       'generic.button': GenericButton;
       'generic.cards': GenericCards;
+      'generic.link': GenericLink;
       'generic.simple-heading': GenericSimpleHeading;
       'seo.seo': SeoSeo;
     }

@@ -427,6 +427,37 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
+  collectionName: 'navbars';
+  info: {
+    description: '';
+    displayName: 'navbar';
+    pluralName: 'navbars';
+    singularName: 'navbar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Button: Schema.Attribute.Component<'generic.button', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.Component<'generic.link', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navbar.navbar'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titleLink: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
@@ -1030,6 +1061,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::footer.footer': ApiFooterFooter;
       'api::home.home': ApiHomeHome;
+      'api::navbar.navbar': ApiNavbarNavbar;
       'api::page.page': ApiPagePage;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'plugin::content-releases.release': PluginContentReleasesRelease;

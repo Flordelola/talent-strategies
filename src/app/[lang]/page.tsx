@@ -1,6 +1,13 @@
-import Footer from "./components/footer";
-import PageSections from "./components/pageSections";
 import { fetchAPI } from "./utils/fetch-api";
+import type { Metadata } from 'next';
+import Footer from "./components/footer";
+import Navbar from "./components/navbar";
+import PageSections from "./components/pageSections";
+
+const FALLBACK_SEO = {
+    title: "Talent strategies",
+    description: "HR - Alejandra Espinosa",
+}
 
 async function getInfoByFooter() {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -47,14 +54,57 @@ async function getInfoByHome() {
     return response;
 }
 
+async function getInfoByNavbar() {
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const path = `/navbar`;
+    const urlParamsObject = {
+        populate: '*'
+    };
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const response = await fetchAPI(path, urlParamsObject, options);
+    return response;
+
+}
+
+async function getMetaData() {
+    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const path = `/home`;
+    const urlParamsObject = {
+        populate: { seo_data: { populate: '*' } },
+        
+    };
+    
+    const options = { headers: { Authorization: `Bearer ${token}` } };
+    const response = await fetchAPI(path, urlParamsObject, options);
+    console.log('response', response.data)
+    if (!!response.data) {
+        return response.data;
+    }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+    const meta = await getMetaData();
+    const metadata = meta && meta.seo_data
+
+    if (!metadata ) {
+        return FALLBACK_SEO
+    } else {;
+        return {
+            title: metadata.metaTitle,
+            description: metadata.metaDescription,
+        };
+    }
+}
 export default async function Home() {
     const dataFooter = await getInfoByFooter();
     const dataHome = await getInfoByHome();
+    const dataNavbar = await getInfoByNavbar();
 
   return (
     <>
+        <Navbar data={dataNavbar.data}/>
         <main>
-        <PageSections data={dataHome.data} />
+            <PageSections data={dataHome.data} />
         </main>
         <Footer data={dataFooter.data} />
     </>
