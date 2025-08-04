@@ -81,7 +81,8 @@ async function getMetaData(slug: string) {
     }
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const params = await props.params;
     const { slug } = params;
     const meta = await getMetaData(slug);
     const metadata = meta && meta[0].seo_data
@@ -96,12 +97,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 }
 
-export default async function PostRoute({ params }: { params: { slug: string } }) {
+export default async function PostRoute(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
     const { slug } = params;
     const dataPages = await getInfoBySlug(slug);
     const dataFooter = await getInfoByFooter();
     const dataNavbar = await getInfoByNavbar();
-    
+
     if (dataPages.data.length === 0) return (
         <>  
             <Navbar data={dataNavbar.data}/>
