@@ -76,7 +76,6 @@ async function getMetaData() {
     
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const response = await fetchAPI(path, urlParamsObject, options);
-    console.log('response', response.data)
     if (!!response.data) {
         return response.data;
     }
