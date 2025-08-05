@@ -22,8 +22,6 @@ export default function MediaContent({ data }: { data: MediaContent}) {
   const bgMediaContentApi = backgroundMediaContent
   const bgMediaSectionApi = backgroundMediaSection
 
-  console.log('media', media)
-
     return (
       <div className={`${"media-content-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`} style={{backgroundImage: `url(${ 'http://localhost:1337' + bgMediaContentApi.url})`}}>
         <div className="max-container padding-container">
