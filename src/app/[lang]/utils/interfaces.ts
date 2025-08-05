@@ -26,13 +26,9 @@ interface SimpleHeading {
 
 interface Media {
   caption: string
-  formats: {
-    thumbnail: {
-      url?: string
-      width: number
-      height: number
-    }
-  }
+  url?: string
+  width: number
+  height: number
 }
 interface Cards {
   title: string
@@ -58,7 +54,7 @@ interface MediaContent {
       text: string
     }[]
   }[]
-  media: Media
+  media?: Media
   backgroundMediaContent: Media
   backgroundMediaSection: Media
   contentAlignment: [key: string]

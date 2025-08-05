@@ -17,7 +17,7 @@
 }
 .media-content-elements-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 32px;
     width: 100%;
@@ -29,8 +29,12 @@
 }
 @media screen and (min-width: 768px) { 
     .media-container {
-        flex: 0 0 calc(25% - 16px);
+        flex: 0 0 calc(40% - 16px);
     }
+}
+
+.media-container.full-width-image {
+    flex: inherit;
 }
 .media-container img{
     max-width: 100%;
