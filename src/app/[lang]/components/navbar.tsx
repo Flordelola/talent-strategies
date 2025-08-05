@@ -28,6 +28,10 @@ export default function Navbar(
             <div className="burger-line"></div>
           </label>
           <div className="mobile-menu">
+            <div className="button-container-navbar">
+              <Button key={Math.random()} color={'white'} size={button?.size}
+              url={button?.url} outsideWeb={button?.outsideWeb} label={button?.label} outline={false}/>
+            </div>
             <ul className="nav-elements">
               {link?.map((item) => (
                 <NavLink key={item.url} href={item.url}>
@@ -35,10 +39,6 @@ export default function Navbar(
                 </NavLink>
               ))}
             </ul>
-            <div className="button-container-navbar">
-              <Button key={Math.random()} color={button?.color} size={button?.size}
-              url={button?.url} outsideWeb={button?.outsideWeb} label={button?.label} outline={button?.outline}/>
-            </div>
           </div>
           <div className="desktop-menu">
             <ul className="nav-elements">
@@ -53,6 +53,10 @@ export default function Navbar(
           </div>
         </div>
       </nav>
+      <div className="button-container-navbar">
+        <Button key={Math.random()} color={'black'} size={button?.size}
+        url={button?.url} outsideWeb={button?.outsideWeb} label={button?.label} outline={false}/>
+      </div>
     </header>
   );
 }
