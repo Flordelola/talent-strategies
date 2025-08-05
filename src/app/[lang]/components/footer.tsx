@@ -17,7 +17,7 @@ export default function Footer(
                url={item.url} outsideWeb={item.outsideWeb} label={item.label} outline={item.outline}/>
             ))}
         </div>
-        <div>
+        <div className="copyright-container">
           <div>&copy; {new Date().getFullYear()} {title}</div>
         </div>
       </footer>

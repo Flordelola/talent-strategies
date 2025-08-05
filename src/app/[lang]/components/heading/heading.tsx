@@ -1,5 +1,4 @@
 import Button from "../button/button";
-import "./heading.css";
 
 const backgroundColorStyle = {
   white: "white-bg",

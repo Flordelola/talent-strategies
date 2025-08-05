@@ -439,7 +439,7 @@ export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Button: Schema.Attribute.Component<'generic.button', false>;
+    button: Schema.Attribute.Component<'generic.button', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

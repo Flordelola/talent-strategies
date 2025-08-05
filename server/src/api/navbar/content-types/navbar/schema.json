@@ -19,7 +19,7 @@
       "repeatable": true,
       "component": "generic.link"
     },
-    "Button": {
+    "button": {
       "type": "component",
       "repeatable": false,
       "component": "generic.button"
