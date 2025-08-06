@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     gap: 32px;
-    cursor: pointer;
 }
 .heading-container {
     display: flex;

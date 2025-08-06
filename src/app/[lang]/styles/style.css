@@ -117,6 +117,7 @@ section > div {
   background-color: var(--black);
   border-bottom: 1px solid var(--pearl);
   position: fixed;
+  z-index: 1;
   width: calc(100% - 40px);
   height: calc(90px - 40px);
 }
@@ -194,7 +195,7 @@ section > div {
   top: 90px;
   right: -100%;
   width: 100%;
-  height: calc(100% - 120px);
+  height: calc(100% - 90px);
   background: linear-gradient(135deg, var(--black) 0%, #030303 100%);
   transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
   overflow-y: auto;
@@ -202,7 +203,8 @@ section > div {
 
 .mobile-menu {
   @media screen and (min-width: 560px) {
-    top: 66px
+    top: 66px;
+    height: calc(100% - 66px);
   }
 }
 
@@ -352,6 +354,6 @@ section > div {
 
 .buttons-container {
   display: flex;
-  flex: wrap;
+  flex-wrap: wrap;
   gap: 20px;
 }
