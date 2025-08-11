@@ -52,3 +52,12 @@
 .media-content-elements-container.content-left-alignment .media-container{
     order: 1;
 }
+
+.video-container{
+    max-width: 1024px;
+}
+.video-container video{
+    box-shadow: 0 0 16px 0 rgba(12,11,51,0.12);
+    width: 100%;
+    height: auto;
+}

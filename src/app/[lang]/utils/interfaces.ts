@@ -27,8 +27,9 @@ interface SimpleHeading {
 interface Media {
   caption: string
   url?: string
-  width: number
+  width?: number
   height: number
+  ext: string
 }
 interface Cards {
   title: string

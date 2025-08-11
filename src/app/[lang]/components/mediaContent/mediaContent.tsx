@@ -21,6 +21,35 @@ export default function MediaContent({ data }: { data: MediaContent}) {
   const mediaApi = media
   const bgMediaContentApi = backgroundMediaContent
   const bgMediaSectionApi = backgroundMediaSection
+  let mediaContent
+  const videoHTML = mediaApi && <div className="video-container"><video src={"http://localhost:1337" + mediaApi.url} width={1024} controls></video> </div>
+  const imageHTML = mediaApi && <Image alt={media.caption ? media.caption : 'images'} objectFit="cover" width={media?.width} height={media?.height} src={'http://localhost:1337' + mediaApi.url} className=''/>
+
+    switch (mediaApi?.ext) {
+     
+        case '.mp4':
+          mediaContent  = videoHTML
+        break;
+        case '.mpeg':
+         mediaContent  = videoHTML
+        break;
+        case '.mov':
+         mediaContent  = videoHTML
+        break;
+        case '.wmv':
+         mediaContent  = videoHTML
+        break;
+        case '.avi':
+         mediaContent  = videoHTML
+        break;
+        case '.flv':
+         mediaContent  = videoHTML
+        break;
+        default: 
+          mediaContent = imageHTML
+        break; 
+       
+    }
 
     return (
       <div className={`${"media-content-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`} style={{backgroundImage: `url(${ 'http://localhost:1337' + bgMediaContentApi.url})`}}>
@@ -29,13 +58,15 @@ export default function MediaContent({ data }: { data: MediaContent}) {
             {(heading?.title || heading?.subTitle || heading?.description) && (
               <SimpleHeading title={heading?.title} subTitle={heading?.subTitle} description={heading?.description} textAlign={heading?.textAlign}/>
             )}
+           
             {(!!mediaApi || content.length > 1) && (
               <div className={`${"media-content-elements-container"} ${contentAlignment ? contentAlignmentStyle[contentAlignment] : ''}`}>
                 {mediaApi && (
-                  <div className={`${"media-container"} ${content.length < 2 ? "full-width-image" : ""}`}>
-                    <Image alt={media.caption ? media.caption : 'images'} objectFit="cover" width={media?.width} height={media?.height} src={'http://localhost:1337' + mediaApi.url} className=''/>
+                  <div id="mediaContent" className={`${"media-container"} ${content.length < 2 ? "full-width-image" : ""}`}>
+                    {mediaContent}
                   </div>
                 )}
+
                 {content.length > 1 && (
                   <div className="content-container" style={{backgroundImage: `url(${ 'http://localhost:1337' + bgMediaSectionApi.url})`}}>
                     {content.map((paragraph) => (

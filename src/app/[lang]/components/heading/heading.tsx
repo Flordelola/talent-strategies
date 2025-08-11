@@ -29,7 +29,7 @@ const textAlignStyle = {
 
 export default function Heading({ data }: { data: Heading}) {
   const {title, subTitle, backgroundColor, titleColor, subTitleColor, button, textAlign} = data
-    console.log('button',)
+  
     return (
       <div className={`${"heading-component"} ${backgroundColor ? backgroundColorStyle[backgroundColor] : 'white-bg'}`}>
         <div className={`${"max-container padding-container"} ${textAlign? textAlignStyle[textAlign] : 'left-alignment'}`}>
