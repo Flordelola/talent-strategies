@@ -25,4 +25,7 @@ export default ({ env }) => ({
       },
     },
   },
+  preview: {
+    enabled: true,
+  }
 });
