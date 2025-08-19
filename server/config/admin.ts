@@ -1,5 +1,5 @@
 // Function to generate preview pathname based on content type and document
-const getPreviewPathname = (uid:string, { document }): string => {
+const getPreviewPathname = (uid:any, { document } : {document: any}): string => {
   const { slug } = document;
   
   switch (uid) {
@@ -21,7 +21,7 @@ const getPreviewPathname = (uid:string, { document }): string => {
 
 
 
-export default ({ env }) => ({
+export default ({ env } : {env: any})  => ({
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
   },
