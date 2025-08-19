@@ -1,5 +1,5 @@
 // Function to generate preview pathname based on content type and document
-const getPreviewPathname = (uid:any, { document }): string => {
+const getPreviewPathname = (uid:string, { document }): string => {
   const { slug } = document;
   
   switch (uid) {
