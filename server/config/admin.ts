@@ -1,3 +1,26 @@
+// Function to generate preview pathname based on content type and document
+const getPreviewPathname = (uid, { locale, document }): string => {
+  const { slug } = document;
+  
+  switch (uid) {
+    // Handle pages with predefined routes
+    case "api::page.page":
+      switch (slug) {
+        case "intro":
+          return "/intro";
+        case "about":
+          return "/about";
+        case "my-services":
+          return "/my-services";
+      }
+    default: {
+      return null;
+    }
+  }
+};
+
+
+
 export default ({ env }) => ({
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
@@ -27,5 +50,20 @@ export default ({ env }) => ({
   },
   preview: {
     enabled: true,
+    config: {
+      allowedOrigins: env("CLIENT_URL"), 
+      async handler(uid, { documentId, locale, status }) {
+        const document = await strapi.documents(uid).findOne({ documentId });
+        const pathname = getPreviewPathname(uid, { locale, document });
+
+        // Disable preview if the pathname is not found
+        if (!pathname) {
+          return null;
+        }
+        return `${env("CLIENT_URL")}/${pathname}`;
+      },
+    }
   }
 });
+
+
