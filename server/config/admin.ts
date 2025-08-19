@@ -1,5 +1,5 @@
 // Function to generate preview pathname based on content type and document
-const getPreviewPathname = (uid, { locale, document }): string => {
+const getPreviewPathname = (uid:any, { document }): string => {
   const { slug } = document;
   
   switch (uid) {
@@ -52,9 +52,9 @@ export default ({ env }) => ({
     enabled: true,
     config: {
       allowedOrigins: env("CLIENT_URL"), 
-      async handler(uid, { documentId, locale, status }) {
+      async handler(uid, { documentId }) {
         const document = await strapi.documents(uid).findOne({ documentId });
-        const pathname = getPreviewPathname(uid, { locale, document });
+        const pathname = getPreviewPathname(uid, { document });
 
         // Disable preview if the pathname is not found
         if (!pathname) {
