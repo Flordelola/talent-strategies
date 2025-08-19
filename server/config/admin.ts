@@ -48,22 +48,22 @@ export default ({ env } : {env: any})  => ({
       },
     },
   },
-  preview: {
-    enabled: true,
-    config: {
-      allowedOrigins: env("CLIENT_URL"), 
-      async handler(uid:any, { documentId } : {documentId: any}) {
-        const document = await strapi.documents(uid).findOne({ documentId });
-        const pathname = getPreviewPathname(uid, { document });
+  // preview: {
+  //   enabled: true,
+  //   config: {
+  //     allowedOrigins: env("CLIENT_URL"), 
+  //     async handler(uid:any, { documentId } : {documentId: any}) {
+  //       const document = await strapi.documents(uid).findOne({ documentId });
+  //       const pathname = getPreviewPathname(uid, { document });
 
-        // Disable preview if the pathname is not found
-        if (!pathname) {
-          return null;
-        }
-        return `${env("CLIENT_URL")}/${pathname}`;
-      },
-    }
-  }
+  //       // Disable preview if the pathname is not found
+  //       if (!pathname) {
+  //         return null;
+  //       }
+  //       return `${env("CLIENT_URL")}/${pathname}`;
+  //     },
+  //   }
+  // }
 });
 
 
