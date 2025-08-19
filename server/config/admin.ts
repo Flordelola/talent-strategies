@@ -52,7 +52,7 @@ export default ({ env } : {env: any})  => ({
     enabled: true,
     config: {
       allowedOrigins: env("CLIENT_URL"), 
-      async handler(uid, { documentId }) {
+      async handler(uid:any, { documentId } : {documentId: any}) {
         const document = await strapi.documents(uid).findOne({ documentId });
         const pathname = getPreviewPathname(uid, { document });
 
